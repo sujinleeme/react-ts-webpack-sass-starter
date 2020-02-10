@@ -51,5 +51,9 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "prebuild": "rimraf dist"
   }
 }
