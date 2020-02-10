@@ -1,12 +1,20 @@
 import "core-js";
 import "regenerator-runtime/runtime";
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import Banner from "./components/Banner";
+import React from "react";
+import ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
+import Container from "./container";
 
-ReactDOM.render(
-  <div>
-    <Banner name="Sujin" />
-  </div>,
-  document.getElementById("app")
-);
+const render = (rootComponent: JSX.Element) => {
+  ReactDOM.render(<AppContainer>{rootComponent}</AppContainer>, document.getElementById("app"));
+};
+
+const RootComponent = Container;
+
+render(<RootComponent />);
+
+if (module.hot) {
+  module.hot.accept("./container", () => {
+    render(require("./container"));
+  });
+}

@@ -15,16 +15,21 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
-      src: path.resolve(__dirname, "./src")
+      src: path.resolve(__dirname, "./src"),
+      "react-dom": "@hot-loader/react-dom"
     }
   },
   devtool: "source-map",
   module: {
     rules: [
       { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] },
-      { test: /\.tsx?$/, loader: "babel-loader" },
-      { test: /\.tsx?$/, loader: "ts-loader" },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      { test: /\.tsx?$/, use: ["babel-loader", "ts-loader"] },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      {
+        test: /\.tsx?$/,
+        include: /node_modules/,
+        use: ["react-hot-loader/webpack"]
+      }
     ]
   },
   plugins: [
@@ -37,7 +42,8 @@ module.exports = {
     host: "localhost",
     port: port,
     historyApiFallback: true,
-    open: true
+    open: true,
+    hot: true
   },
   optimization: {
     splitChunks: {

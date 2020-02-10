@@ -6,6 +6,7 @@
   "author": "sujinleeme <sujinlee.me@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@hot-loader/react-dom": "^16.11.0",
     "core-js": "^3.6.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -21,6 +22,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@types/webpack-env": "^1.15.1",
     "autoprefixer": "^9.7.4",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
@@ -34,6 +36,7 @@
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
+    "react-hot-loader": "^4.12.19",
     "rimraf": "^3.0.2",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
