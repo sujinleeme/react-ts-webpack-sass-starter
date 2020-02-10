@@ -1,4 +1,6 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const port = process.env.PORT || 3000;
 
 module.exports = {
   mode: "development",
@@ -24,5 +26,29 @@ module.exports = {
       { test: /\.tsx?$/, loader: "ts-loader" },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "public/index.html",
+      favicon: "public/favicon.ico"
+    })
+  ],
+  devServer: {
+    host: "localhost",
+    port: port,
+    historyApiFallback: true,
+    open: true
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: "initial",
+          test: "vendor",
+          name: "vendor",
+          enforce: true
+        }
+      }
+    }
   }
 };
