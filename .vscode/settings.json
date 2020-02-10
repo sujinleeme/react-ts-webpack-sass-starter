@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "emmet.syntaxProfiles": {
+    "postcss": "css"
+  },
+  "prettier.disableLanguages": ["css", "postcss"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.printWidth": 100
+}
