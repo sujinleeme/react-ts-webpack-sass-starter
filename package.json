@@ -28,9 +28,12 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
+    "chalk": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
+    "dotenv-webpack": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.1",
     "mini-css-extract-plugin": "^0.9.0",
@@ -50,14 +53,17 @@
     "tslint-react": "^4.2.0",
     "tslint-webpack-plugin": "^2.1.0",
     "typescript": "^3.7.5",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.5",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js",
-    "prebuild": "rimraf dist"
+    "prebuild": "rimraf dist",
+    "build": "cross-env NODE_ENV=production webpack -p --config  ./script/webpack --env.mode production",
+    "start": "webpack-dev-server --hot --watch --progress --config ./script/webpack --env.mode development"
   }
 }
