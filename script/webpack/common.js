@@ -34,9 +34,12 @@ module.exports = env => {
   return {
     /** RESOLVE */
     resolve: {
-      extensions: [".ts", ".js", ".json", ".tsx"],
+      extensions: [".ts", ".js", ".json", ".scss", ".tsx"],
+      modules: ["node_modules"],
       alias: {
-        src: path.resolve(__dirname, "../../src")
+        node_modules: path.resolve(__dirname, "../../node_modules"),
+        src: path.resolve(__dirname, "../../src"),
+        styles: path.resolve(__dirname, "../../src/styles")
       }
     },
 
@@ -47,7 +50,6 @@ module.exports = env => {
 
     output: {
       filename: "js/[name].[hash].js",
-      //   chunkFilename: "[name].[chunkhash].bundle.js",
       path: appConfig.paths.output,
       publicPath: "/"
     },

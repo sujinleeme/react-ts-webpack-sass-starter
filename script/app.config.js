@@ -15,7 +15,8 @@ module.exports = {
     root: paths.root,
     src: {
       base: join(paths.root, "src"),
-      entry: join(paths.root, "src", "index.tsx")
+      entry: join(paths.root, "src", "index.tsx"),
+      style: join(paths.root, "src", "styles")
     },
     output: join(paths.root, "dist"),
     env: join(paths.root, ".env"),

@@ -1,9 +1,7 @@
-const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const cssnano = require("cssnano");
 
 const appConfig = require("../app.config");
 

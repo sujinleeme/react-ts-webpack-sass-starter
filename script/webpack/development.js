@@ -1,26 +1,26 @@
-const appConfig = require("../app.config");
+const appConfig = require('../app.config');
 
 module.exports = env => {
   return {
     mode: env.mode,
-    devtool: "eval-source-map",
+    devtool: 'eval-source-map',
     module: {
       rules: [
-        { test: /\.s[ac]ss$/i, use: ["style-loader", "css-loader", "sass-loader"] },
+        // { test: /\.css$/, loader: "typings-for-css-modules-loader?modules" },
+        // { test: /\.scss$/, loader: "typings-for-css-modules-loader?modules&sass" },
+
         {
-          test: /\.css$/,
+          test: /\.s[ac]ss$/i,
           use: [
+            'style-loader',
+            'css-loader',
             {
-              loader: "typings-for-css-modules-loader",
+              loader: 'sass-loader',
               options: {
-                sourceMap: true,
-                import: false,
-                url: false,
-                importLoaders: 1,
-                modules: true,
-                camelCase: true,
-                namedExport: true,
-                localIdentName: "[name]__[local]--[hash:base64:5]"
+                sassOptions: {
+                  sourceMap: true,
+                  includePaths: ['node_modules', appConfig.paths.src.style]
+                }
               }
             }
           ]
@@ -31,7 +31,7 @@ module.exports = env => {
       historyApiFallback: {
         disableDotRule: true
       },
-      publicPath: "/",
+      publicPath: '/',
       contentBase: appConfig.paths.public.base,
       port: appConfig.devServer.port
     },
