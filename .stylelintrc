@@ -1,0 +1,6 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "ignoreFiles": [
+    "src/styles/*.scss"
+  ]
+}

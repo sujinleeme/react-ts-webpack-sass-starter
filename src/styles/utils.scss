@@ -1,0 +1,15 @@
+@import 'colors.scss';
+
+$pxrem: 0.0625rem;
+
+@function px($size) {
+  @return $size * $pxrem;
+}
+
+@function color($colorName) {
+  @if (map_has_key($colors, $colorName)) {
+    @return map-get($colors, $colorName);
+  } @else {
+    @error "Color is not defined: " + $colorName;
+  }
+}
