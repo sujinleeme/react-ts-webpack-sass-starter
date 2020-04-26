@@ -3,6 +3,10 @@
     "*.css": "postcss"
   },
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "javascript.format.enable": false,
   "emmet.includeLanguages": {
     "postcss": "css"
@@ -11,7 +15,10 @@
     "postcss": "css"
   },
   "prettier.disableLanguages": ["css", "postcss"],
+  "prettier.eslintIntegration": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.preferences.quoteStyle": "single",
-  "prettier.printWidth": 100
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.alwaysShowStatus": true
 }
