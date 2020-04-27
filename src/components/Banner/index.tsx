@@ -8,7 +8,10 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ name }) => (
   <div className="banner">
-    <span className="banner__text">Hello, {name}!</span>
+    <span className="banner__text">
+      Hello,
+      {name}!
+    </span>
   </div>
 );
 

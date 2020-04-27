@@ -17,6 +17,14 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "rules": {
+    /**
+     * https: //github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+     */
+    "react/prop-types": 0,
+
+    /**
+     * https: //github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+     */
     "import/order": [
       "error",
       {
@@ -36,10 +44,10 @@
         }
       }
     ],
+
     /**
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md#allowtypedfunctionexpressions
      */
-
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {

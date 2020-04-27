@@ -60,6 +60,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.0",
     "postcss-loader": "^3.0.0",
@@ -89,10 +90,23 @@
     "scss:tsm": "tsm \"src/**/*.scss\" --nameFormat camel --includePaths src/styles --aliasPrefixes.~styles src/styles",
     "scss": "stylelint \"src/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
     "fix:scss": "stylelint \"src/**/*.scss\" --fix",
-    "lint": "eslint -c .eslintrc --ext .js,.jsx,.ts,.tsx 'src/**/*.{ts,tsx}'",
-    "fix:lint": "yarn lint --fix",
+    "eslint": "eslint -c .eslintrc --ext .js,.jsx,.ts,.tsx 'src/**/*.{ts,tsx}'",
+    "fix:eslint": "yarn eslint --fix",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack -p --config  ./script/webpack/index.ts --env.mode production",
-    "start": "webpack-dev-server --hot --watch --progress --config ./script/webpack/index.ts --env.mode development"
+    "start": "webpack-dev-server --hot --watch --progress --config ./script/webpack/index.ts --env.mode development",
+    "fix:all": "yarn fix:scss && yarn fix:eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write",
+      "yarn fix:scss",
+      "yarn fix:eslint"
+    ]
   }
 }
