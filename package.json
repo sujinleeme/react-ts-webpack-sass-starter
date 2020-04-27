@@ -26,10 +26,14 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.1",
+    "@types/copy-webpack-plugin": "^5.0.0",
+    "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/node": "^13.13.2",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "@types/webpack": "^4.41.12",
+    "@types/webpack-bundle-analyzer": "^2.13.3",
     "@types/webpack-dev-server": "^3.10.1",
     "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
@@ -69,7 +73,7 @@
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-scss": "^3.17.1",
     "ts-loader": "^7.0.1",
-    "ts-node": "^8.9.0",
+    "ts-node": "^8.9.1",
     "typed-scss-modules": "^1.3.0",
     "typescript": "^3.8.3",
     "typings-for-css-modules-loader": "^1.7.0",
@@ -81,13 +85,14 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "tsm-scss": "tsm \"src/**/*.scss\" --nameFormat camel --includePaths src/styles --aliasPrefixes.~styles src/styles",
-    "lint-scss": "stylelint \"src/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
-    "fix-scss": "stylelint \"src/**/*.scss\" --fix",
+    "tsc:test": "tsc -p tsconfig.test.json -w",
+    "scss:tsm": "tsm \"src/**/*.scss\" --nameFormat camel --includePaths src/styles --aliasPrefixes.~styles src/styles",
+    "scss": "stylelint \"src/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
+    "fix:scss": "stylelint \"src/**/*.scss\" --fix",
     "lint": "eslint -c .eslintrc --ext .js,.jsx,.ts,.tsx 'src/**/*.{ts,tsx}'",
-    "lint:fix": "yarn lint --fix",
+    "fix:lint": "yarn lint --fix",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack -p --config  ./script/webpack --env.mode production",
-    "start": "webpack-dev-server --hot --watch --progress --config ./script/webpack --env.mode development"
+    "build": "cross-env NODE_ENV=production webpack -p --config  ./script/webpack/index.ts --env.mode production",
+    "start": "webpack-dev-server --hot --watch --progress --config ./script/webpack/index.ts --env.mode development"
   }
 }
